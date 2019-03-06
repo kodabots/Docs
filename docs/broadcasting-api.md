@@ -11,15 +11,15 @@ A token generated on "Settings" tab in dashboard.kodabots.com should be passed o
 
 `https://broadcast.kodabots.com/api/send`
 
-All queries to the Broadcasting API must be served via POST, with the content type application/json. Body should contain valid json object with implement [IBroadcastApi](../broadcast-api.ts) interface.
+All queries to the Broadcasting API must be served via POST, with the content type application/json. Body should contain valid json object with implements [IBroadcastApi](../broadcast-api.ts) interface.
 
 | Param  | Type | Description
 | -------- | --- |------------- |
-| to | string[]  | {{platform_user_id}} user var that you should get from "Api Request Block". Max 1000.
-| desc (optional) | string | Description with is shown on broadcast stats page .
+| to | string[]  | {{platform_user_id}} user variable with you should get from "Api Request Block". Max 1000.
+| desc (optional) | string | Description with is shown on broadcast stats page.
 | message_tag | string | A message tag gives you the ability to send messages to a person outside of the 24h window. https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags.
 | block_id (optional) | string | A [block id](#block-id) with should be send. 
-| elements (optional) | [Element](#elements-reference)[] | An array of blocks to send.
+| elements (optional) | [Element](#elements-reference)[] | An array of elements to send.
 
 At least elements or block_id properties must be set.
 
@@ -53,9 +53,9 @@ Message allow you to send a structured message that includes text and optional b
 
 | Param  | Type | Description
 | -------- | --- |------------- |
-| type | string  | Value must be 'message'
+| type | string  | Value must be 'message'.
 | text | string  | UTF-8-encoded text of up to 640 characters. Text will appear above the buttons.
-| buttons (optional) | [Button](#button-reference)[] | Max 3 buttons
+| buttons (optional) | [Button](#button-reference)[] | Max 3.
 | quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
 
 Example
@@ -83,8 +83,8 @@ Example
 
 | Param  | Type | Description
 | -------- | --- |------------- |
-| type | string  | Value must be 'photo'
-| url | string  | Image url. Messenger supports JPG, PNG and GIF images. If you are having issues with GIF rendering, please try to reduce the file size.
+| type | string  | Value must be 'photo'.
+| url | string  | Messenger supports JPG, PNG and GIF images. If you are having issues with GIF rendering, please try to reduce the file size.
 | quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
 
 #### Example
@@ -100,13 +100,14 @@ Example
 
 <img src="images/gallery.png" width="200">
 
-The gallery allows you to send a structured message that includes an image, text and buttons. A gallery with multiple templates described in the elements array will send a horizontally scrollable carousel of items, each composed of an image, text and button
+The gallery allows you to send a structured message that includes an image, text and buttons. A gallery with multiple templates described in the elements array will send a horizontally scrollable carousel of items, each composed of an image, text and button.
 
 | Param  | Type | Description
 | -------- | --- |------------- |
-| type | string  | Value must be 'gallery'
-| elements | element[]  | Specifying multiple elements will send a horizontally scrollable carousel of templates. A maximum of 10 elements is supported.
-| quick_replies (optional) | reply[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
+| type | string  | Value must be 'gallery'.
+| elements | [Element](#element)[]  | Specifying multiple elements will send a horizontally scrollable carousel of templates. A maximum of 10 elements is supported.
+| quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
+
 
 #### Element
 
@@ -114,12 +115,11 @@ At least one property must be set in addition to title.
 
 | Param  | Type | Description
 | -------- | --- |------------- |
-| title | string  | The title to display in the template. 80 character limit.
-| subtitle (optional) | string  |  The subtitle to display in the template. 80 character limit. 
-| image_url (optional) | string  | The URL of the image to display in the template. Recommended resolution: 955x500px
-| default_action_url (optional) | string  | The URL executed when the template is tapped. 
+| title | string  | The title to display in the element. 80 character limit.
+| subtitle (optional) | string  |  The subtitle to display in the element. 80 character limit. 
+| image_url (optional) | string  | The URL of the image to display in the element. Recommended resolution: 955x500px
+| default_action_url (optional) | string  | The URL executed when the element is tapped. 
 | buttons (optional) | [Button](#button-reference)[] | Max 3 buttons
-| quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
 
 Example
 
@@ -157,8 +157,8 @@ Example
 
 | Param  | Type | Description
 | -------- | --- |------------- |
-| type | string  | Value must be 'audio'
-| url | string  | Audio url. Messenger supports MP3, OGG, WAV audios, which are up to 25MB in size.
+| type | string  | Value must be 'audio'.
+| url | string  | Messenger supports MP3, OGG, WAV audios, which are up to 25MB in size.
 | quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
 
 #### Example
@@ -172,14 +172,14 @@ Example
 
 ### Video
 
-<!-- ![alt](images/video.png) -->
+![alt](images/video.png)
 
 #### Properties 
 
 | Param  | Type | Description
 | -------- | --- |------------- |
 | type | string  | Value must be 'video'.
-| url | string  | Video url. Messenger supports MP4 videos, which are up to 25MB in size. 
+| url | string  | Messenger supports MP4 videos, which are up to 25MB in size.
 | quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
 
 #### Example
@@ -200,7 +200,7 @@ Example
 | Param  | Type | Description
 | -------- | --- |------------- |
 | type | string  | Value must be 'file'.
-| url | string  | File url. Max 25MB.
+| url | string  | Max 25MB.
 | quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
 
 Example
@@ -214,7 +214,7 @@ Example
 
 ## Button Reference
 
-Button can be used in gallery and message element.
+Button can be used in [gallery](#gallery) and [message](#message) element.
 
 ### Url Button
 
@@ -242,7 +242,7 @@ The URL Button opens a web page in the Messenger webview. This allows you to enr
 
 ### Go to Button
 
-Block with id will be send to user after taping the button.
+Block will be send to user after taping the button.
 
 #### Properties 
 
@@ -250,7 +250,7 @@ Block with id will be send to user after taping the button.
 | -------- | --- |------------- |
 | type | string  | Value must be 'go_to'.
 | title | string  | Max 20 characters. Copy with will be shown on the button.
-| go_to_block | string | Block id 
+| go_to_block | string | [block id](#block-id)
 
 #### Example 
 
@@ -301,7 +301,7 @@ Quick replies provide a way to present a set of up to 11 buttons in-conversation
 
 ## Success Response
 
-When broadcast is successfull sent, api return ID. This ID can be passed to Analytics Api to get stats informations such as open rates or buttons CTRs.
+When broadcast is successful sent, API return ID. This ID can be passed to Analytics API to get stats informations such as open rates or buttons CTRs.
 
 Result 200
 ```json
@@ -315,7 +315,7 @@ Result 200
 Errors are returned using standard HTTP error code syntax. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error (wrong or missing parameters, insufficient authentication etc.), and codes in the 5xx range indicate an error with KODA Bots servers. Any additional info is included in the status of the return call, JSON-formatted.
 
 HTTP status codes summary
-- 400 – The request was incorrect. 400 – The request was incorrect. Please make sure that the passed arguments are matching format provided in the method documentation.
+- 400 – The request was incorrect. Please make sure that the passed arguments are matching format provided in the method documentation.
 - 401 – Unauthorized. In most cases you pass invalid token.
 - 500 – Internal Server Error. Something unexpected happened on our end. Please try again or contact support.
 
@@ -337,11 +337,11 @@ Result 401
 }
 ```
 
-## User variables
+<!-- ## User variables
 
-In all texts you can use user variables e.g. first_name. Full list of available properties you can find [here](user-variables).
+In all texts you can use user variables e.g. first_name. Full list of available properties you can find [here](user-variables.md). -->
 
-### Example
+<!-- ### Example
 
 ```bash
 curl -X POST \
@@ -356,7 +356,7 @@ curl -X POST \
     }],
     "message_tag" : "NON_PROMOTIONAL_SUBSCRIPTION"
 }'
-```
+``` -->
 
 ## Block Id
 

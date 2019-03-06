@@ -5,17 +5,17 @@ Welcome to KODA Bots Docs!
 
 Below you can see list of available APIs & SDKs. With their help you can integrate created chatbot with external systems, websites or data sources. Have fun 😊
 
-## [Broadcasting Api](docs/broadcasting-api.md)
+## [Broadcasting API](docs/broadcasting-api.md)
 
-Broadcasting Api allow you to sent messages to chatbot users via an http request.
+Broadcasting API allow you to sent messages to chatbot users via an http request.
 
-## Messenger Webview Api (docs comming soon)
+## Messenger Webview API (docs comming soon)
 
-Modify user profile and sent next element from sequence directly from Messenger Webview.
+Modify user profile and sent next sequence`s element directly from Messenger Webview.
 
-## Dynamic Gallery Api (docs comming soon)
+## Dynamic Gallery API (docs comming soon)
 
-Create custom data source for gallery element e.g calendar, flights schedule or store products filter.
+Create custom data source for gallery element e.g calendar, flights schedule or products store filter.
 
 ## Web Chatbot Widget SDK (docs comming soon)
 
@@ -29,13 +29,13 @@ Wrapper for default Messenger Web Widgets with allow e.g. save data to user prof
 
 Create custom login page to authorize chatbot user with your application.
 
-## Analytics Api (docs comming soon)
+## Analytics API (docs comming soon)
 
-Get full analytics data and integrate KODA Bots platform with e.g Power Bi or Tabloue apps.
+Get full analytics data and integrate KODA Bots Platform with e.g Power Bi or Tableau applications.
 
-## User Management Api (docs comming soon)
+## User Management API (docs comming soon)
 
-Add, Remove and update chatbot users.
+Add, remove and update users.
 
 ## Webhook (docs comming soon)
 
