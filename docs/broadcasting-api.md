@@ -47,6 +47,8 @@ curl -X POST \
 
 ### Message
 
+![alt](images/message.png)
+
 Message allow you to send a structured message that includes text and optional buttons.
 
 | Param  | Type | Description
@@ -77,6 +79,8 @@ Example
 
 ### Photo
 
+![alt](images/image.png)
+
 | Param  | Type | Description
 | -------- | --- |------------- |
 | type | string  | Value must be 'photo'
@@ -93,6 +97,8 @@ Example
 ```
 
 ### Gallery
+
+![alt](images/gallery.png)
 
 The gallery allows you to send a structured message that includes an image, text and buttons. A gallery with multiple templates described in the elements array will send a horizontally scrollable carousel of items, each composed of an image, text and button
 
@@ -145,6 +151,8 @@ Example
 
 ### Audio
 
+![alt](images/audio.png)
+
 #### Properties 
 
 | Param  | Type | Description
@@ -164,6 +172,8 @@ Example
 
 ### Video
 
+![alt](images/video.png)
+
 #### Properties 
 
 | Param  | Type | Description
@@ -182,6 +192,8 @@ Example
 ```
 
 ### File
+
+![alt](images/file.png)
 
 #### Properties 
 
@@ -205,6 +217,8 @@ Example
 Button can be used in gallery and message element.
 
 ### Url Button
+
+![alt](images/url-button.png)
 
 The URL Button opens a web page in the Messenger webview. This allows you to enrich the conversation with a web-based experience, where you have the full development flexibility of the web. For example, you might display a product summary in-conversation, then use the URL button to open the full product page on your website.
 
@@ -248,13 +262,57 @@ Block with id will be send to user after taping the button.
 }
 ```
 
-#### Phone Number Button
+### Phone Number Button
+
+![alt](images/phone-number.png)
+
+#### Properties 
+
+| Param  | Type | Description
+| -------- | --- |------------- |
+| type | string  | Value must be 'phone_number'.
+| title | string  | Max 20 characters. Copy with will be shown on the button.
+| prefix | string | Country code with '+' e.g. +48
+| number | number | Phone number without any special characters e.g. 123123123.
+
+#### Example 
+
+```json
+{
+    "type" : "phone_number",
+    "title" : "Call",
+    "prefix" : "+48",
+    "number" : 123123123
+}
+```
 
 ## Quick Reply Reference
 
-## Example Success Response
+Quick replies provide a way to present a set of up to 11 buttons in-conversation that contain a title and appear prominently above the composer.
+
+![alt](images/quick-replies.png)
+
+#### Properties 
+
+| Param  | Type | Description
+| -------- | --- |------------- |
+| title | string  | Max 20 characters. Copy with will be shown on the quick reply.
+| go_to_block | string | Block id 
+
+## Success Response
+
+When broadcast is successfull sent, api return ID. This ID can be passed to Analytics Api to get stats informations such as open rates or buttons CTRs.
+
+Result 200
+```json
+{
+    "broadcast_id" : "ID",
+}
+```
 
 ## Errors
+
+
 
 ## Block Id
 
