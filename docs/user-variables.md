@@ -1,6 +1,0 @@
-
-# User Variables
-
-## System
-
-## Dynamic

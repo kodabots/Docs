@@ -43,9 +43,9 @@ curl -X POST \
 }'
 ```
 
-## Elements Reference
+# Elements Reference
 
-### Message
+## Message
 
 <img src="images/message.png" width="200">
 
@@ -77,7 +77,7 @@ Example
 }
 ```
 
-### Photo
+## Photo
 
 ![alt](images/image.png)
 
@@ -96,7 +96,7 @@ Example
 }
 ```
 
-### Gallery
+## Gallery
 
 <img src="images/gallery.png" width="200">
 
@@ -109,7 +109,7 @@ The gallery allows you to send a structured message that includes an image, text
 | quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
 
 
-#### Element
+### Element
 
 At least one property must be set in addition to title.
 
@@ -149,7 +149,7 @@ Example
 }
 ```
 
-### Audio
+## Audio
 
 ![alt](images/audio.png)
 
@@ -170,7 +170,7 @@ Example
 }
 ```
 
-### Video
+## Video
 
 ![alt](images/video.png)
 
@@ -191,7 +191,7 @@ Example
 }
 ```
 
-### File
+## File
 
 ![alt](images/file.png)
 
@@ -319,7 +319,7 @@ HTTP status codes summary
 - 401 – Unauthorized. In most cases you pass invalid token.
 - 500 – Internal Server Error. Something unexpected happened on our end. Please try again or contact support.
 
-### Examples
+#### Examples
 
 Result 400
 ```json
