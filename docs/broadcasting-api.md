@@ -11,21 +11,21 @@ A token generated on "Settings" tab in dashboard.kodabots.com should be passed o
 
 `https://broadcast.kodabots.com/api/send`
 
-All queries to the Broadcasting API must be served via POST, with the content type application/json. Body should contain valid json object with properties:
+All queries to the Broadcasting API must be served via POST, with the content type application/json. Body should contain valid json object with implement [IBroadcastApi](../broadcast-api.ts) interface.
 
 | Param  | Type | Description
 | -------- | --- |------------- |
 | to | string[]  | {{platform_user_id}} user var that you should get from "Api Request Block". Max 1000.
 | desc (optional) | string | Description with is shown on broadcast stats page .
 | message_tag | string | A message tag gives you the ability to send messages to a person outside of the 24h window. https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags.
-| block_id (optional) | string | A block id with should be send. 
+| block_id (optional) | string | A [block id](#block-id) with should be send. 
 | elements (optional) | [Element](#elements-reference)[] | An array of blocks to send.
 
 At least elements or block_id properties must be set.
 
 Example request:
 
-```shell
+```bash
 curl -X POST \
   https://broadcast.kodabots.com/api/send \
   -H 'Content-Type: application/json' \
@@ -34,7 +34,7 @@ curl -X POST \
     "to" : ["USER_ID_1", "USER_ID_2"],
     "elements" : [{
         "type" : "photo",
-        "url" : "https://www.telix.pl/wp-content/uploads/2018/08/Moico.jpg"
+        "url" : "https://raw.githubusercontent.com/kodabots/Docs/master/docs/images/cover.png"
     },{
         "type" : "message",
         "text" : "Message 123",
@@ -55,8 +55,8 @@ Message allow you to send a structured message that includes text and optional b
 | -------- | --- |------------- |
 | type | string  | Value must be 'message'
 | text | string  | UTF-8-encoded text of up to 640 characters. Text will appear above the buttons.
-| buttons (optional) | button[] | Max 3 buttons
-| quick_replies (optional) | reply[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
+| buttons (optional) | [Button](#button-reference)[] | Max 3 buttons
+| quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
 
 Example
 
@@ -84,10 +84,10 @@ Example
 | Param  | Type | Description
 | -------- | --- |------------- |
 | type | string  | Value must be 'photo'
-| url | string  | Image url
-| quick_replies (optional) | reply[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
+| url | string  | Image url. Messenger supports JPG, PNG and GIF images. If you are having issues with GIF rendering, please try to reduce the file size.
+| quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
 
-Example
+#### Example
 
 ```json
 {
@@ -118,8 +118,8 @@ At least one property must be set in addition to title.
 | subtitle (optional) | string  |  The subtitle to display in the template. 80 character limit. 
 | image_url (optional) | string  | The URL of the image to display in the template. Recommended resolution: 955x500px
 | default_action_url (optional) | string  | The URL executed when the template is tapped. 
-| buttons (optional) | button[]  | An array of buttons to append to the template. A maximum of 3 buttons per element is supported.
-| quick_replies (optional) | reply[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
+| buttons (optional) | [Button](#button-reference)[] | Max 3 buttons
+| quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
 
 Example
 
@@ -129,7 +129,7 @@ Example
     "elements" : [{
         "title" : "Title 1",
         "subtitle" : "Subtitle 1",
-        "image_url" : "https://www.telix.pl/wp-content/uploads/2018/08/Moico.jpg",
+        "image_url" : "https://raw.githubusercontent.com/kodabots/Docs/master/docs/images/cover.png",
         "default_action_url" : "https://kodabots.com",
         "buttons": [{
             "type": "go_to",
@@ -158,8 +158,8 @@ Example
 | Param  | Type | Description
 | -------- | --- |------------- |
 | type | string  | Value must be 'audio'
-| url | string  | Audio url
-| quick_replies (optional) | reply[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
+| url | string  | Audio url. Messenger supports MP3, OGG, WAV audios, which are up to 25MB in size.
+| quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
 
 #### Example
 
@@ -178,9 +178,9 @@ Example
 
 | Param  | Type | Description
 | -------- | --- |------------- |
-| type | string  | Value must be 'video'
-| url | string  | Video url
-| quick_replies (optional) | reply[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
+| type | string  | Value must be 'video'.
+| url | string  | Video url. Messenger supports MP4 videos, which are up to 25MB in size. 
+| quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
 
 #### Example
 
@@ -199,9 +199,9 @@ Example
 
 | Param  | Type | Description
 | -------- | --- |------------- |
-| type | string  | Value must be 'file'
-| url | string  | File url
-| quick_replies (optional) | reply[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
+| type | string  | Value must be 'file'.
+| url | string  | File url. Max 25MB.
+| quick_replies (optional) | [Reply](#quick-reply-reference)[] | An array of objects the describe the quick reply buttons to send. A maximum of 11 quick replies are supported.
 
 Example
 
@@ -258,7 +258,7 @@ Block with id will be send to user after taping the button.
 {
     "type" : "go_to",
     "title" : "Go to block",
-    "go_to_block" : "f60ea240-4cda-d1f9-032f-05eba5794059"
+    "go_to_block" : "BLOCK_ID"
 }
 ```
 
@@ -297,7 +297,7 @@ Quick replies provide a way to present a set of up to 11 buttons in-conversation
 | Param  | Type | Description
 | -------- | --- |------------- |
 | title | string  | Max 20 characters. Copy with will be shown on the quick reply.
-| go_to_block | string | Block id 
+| go_to_block | string | [block id](#block-id)
 
 ## Success Response
 
@@ -312,15 +312,64 @@ Result 200
 
 ## Errors
 
+Errors are returned using standard HTTP error code syntax. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error (wrong or missing parameters, insufficient authentication etc.), and codes in the 5xx range indicate an error with KODA Bots servers. Any additional info is included in the status of the return call, JSON-formatted.
+
+HTTP status codes summary
+- 400 – The request was incorrect. 400 – The request was incorrect. Please make sure that the passed arguments are matching format provided in the method documentation.
+- 401 – Unauthorized. In most cases you pass invalid token.
+- 500 – Internal Server Error. Something unexpected happened on our end. Please try again or contact support.
+
+### Examples
+
+Result 400
+```json
+{
+    "code": "BAD_USER_ID",
+    "message": "Bad user \"USER_ID_1\""
+}
+```
+
+Result 401
+```json
+{
+    "code": "UNAUTHORIZED",
+    "message": "Invalid Api token"
+}
+```
+
 ## User variables
+
+In all texts you can use user variables e.g. first_name. Full list of available properties you can find [here](user-variables).
+
+### Example
+
+```bash
+curl -X POST \
+  https://broadcast.kodabots.com/api/send \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: TOKEN' \
+  -d '{
+    "to" : ["USER_ID_1", "USER_ID_2"],
+    "elements" : [{
+        "type" : "message",
+        "text" : "Hi {{first_name}}. How are you?",
+    }],
+    "message_tag" : "NON_PROMOTIONAL_SUBSCRIPTION"
+}'
+```
 
 ## Block Id
 
-## Postman examples
+Easiest way to get block id is copy it from dashboard`s url.
 
-You can download here postman example requests.
+https://dashboard.kodabots.com/bot/e394bb27-5f84-a8b7-659a-8779c7605321/create-bot/**f60ea240-4cda-d1f9-032f-05eba5794059**
 
-## Interface
+## Postman Collection
+
+Postman is a popular tool to help test APIs. To make it more convenient for developers who are integrating with our platform, we've developed a Postman collection that contains the full set of APIs.
+
+Download and install Postman. After that click [here](KODA Bots Public Api.postman_collection.json) to download collection.
 
 ## Contact
 
+Feel free to say hello and sent message on developers@kodabots.com.

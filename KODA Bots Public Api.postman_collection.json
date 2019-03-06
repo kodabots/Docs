@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "ecbd2cb3-342a-420d-a8cf-c031ef34e79b",
+		"name": "KODA Bots Public Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "broadcasting-api",
+			"item": [
+				{
+					"name": "https://broadcast.kodabots.com/api/send",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "TOKEN",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"to\" : [\"USER_ID_1\", \"USER_ID_2\"],\n\t\"elements\" : [{\n\t\t\"type\" : \"photo\",\n\t\t\"url\" : \"https://raw.githubusercontent.com/kodabots/Docs/master/docs/images/cover.png\"\n\t},{\n\t\t\"type\" : \"message\",\n\t\t\"text\" : \"Hi {{first_name}}\",\n\t\t\"buttons\": [{\n\t\t\t\"type\": \"go_to\",\n\t\t\t\"title\": \"Go To\",\n\t\t\t\"go_to_block\": \"BLOCK_ID\"\n\t\t}, {\n\t\t\t\"type\": \"url\",\n\t\t\t\"title\": \"Link\",\n\t\t\t\"url\": \"https://kodabots.com\"\n\t\t}, {\n\t\t\t\"type\": \"phone_number\",\n\t\t\t\"title\": \"Call\",\n\t\t\t\"prefix\": \"+48\",\n\t\t\t\"number\": \"123123123\"\n\t\t}]\n\t}, {\n\t\t\"type\" : \"gallery\",\n\t\t\"elements\" : [{\n\t\t\t\"title\" : \"Title 1\",\n\t\t\t\"subtitle\" : \"Subtitle 1\",\n\t\t\t\"image_url\" : \"https://raw.githubusercontent.com/kodabots/Docs/master/docs/images/cover.png\",\n\t\t\t\"default_action_url\" : \"https://kodabots.com\",\n\t\t\t\"buttons\": [{\n\t\t\t\t\"type\": \"go_to\",\n\t\t\t\t\"title\": \"Go To\",\n\t\t\t\t\"go_to_block\": \"BLOCK_ID\"\n\t\t\t}, {\n\t\t\t\t\"type\": \"url\",\n\t\t\t\t\"title\": \"Link\",\n\t\t\t\t\"url\": \"https://kodabots.com\"\n\t\t\t}, {\n\t\t\t\t\"type\": \"phone_number\",\n\t\t\t\t\"title\": \"Call\",\n\t\t\t\t\"prefix\": \"+48\",\n\t\t\t\t\"number\": \"123123123\"\n\t\t\t}]\n\t\t}]\n\t}],\n\t\"message_tag\" : \"TICKET_UPDATE\"\n}"
+						},
+						"url": {
+							"raw": "https://broadcast.kodabots.com/api/send",
+							"protocol": "https",
+							"host": [
+								"broadcast",
+								"kodabots",
+								"com"
+							],
+							"path": [
+								"api",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
