@@ -47,7 +47,7 @@ curl -X POST \
 
 ### Message
 
-<!-- ![alt](images/message.png) -->
+<img src="images/message.png" width="200">
 
 Message allow you to send a structured message that includes text and optional buttons.
 
@@ -79,7 +79,7 @@ Example
 
 ### Photo
 
-<!-- ![alt](images/image.png) -->
+![alt](images/image.png)
 
 | Param  | Type | Description
 | -------- | --- |------------- |
@@ -98,7 +98,7 @@ Example
 
 ### Gallery
 
-<!-- ![alt](images/gallery.png) -->
+<img src="images/gallery.png" width="200">
 
 The gallery allows you to send a structured message that includes an image, text and buttons. A gallery with multiple templates described in the elements array will send a horizontally scrollable carousel of items, each composed of an image, text and button
 
@@ -151,7 +151,7 @@ Example
 
 ### Audio
 
-<!-- ![alt](images/audio.png) -->
+![alt](images/audio.png)
 
 #### Properties 
 
@@ -193,7 +193,7 @@ Example
 
 ### File
 
-<!-- ![alt](images/file.png) -->
+![alt](images/file.png)
 
 #### Properties 
 
@@ -218,7 +218,7 @@ Button can be used in gallery and message element.
 
 ### Url Button
 
-<!-- ![alt](images/url-button.png) -->
+![alt](images/url-button.png)
 
 The URL Button opens a web page in the Messenger webview. This allows you to enrich the conversation with a web-based experience, where you have the full development flexibility of the web. For example, you might display a product summary in-conversation, then use the URL button to open the full product page on your website.
 
@@ -290,7 +290,7 @@ Block with id will be send to user after taping the button.
 
 Quick replies provide a way to present a set of up to 11 buttons in-conversation that contain a title and appear prominently above the composer.
 
-<!-- ![alt](images/quick-replies.png) -->
+![alt](images/quick-replies.png)
 
 #### Properties 
 
@@ -362,13 +362,13 @@ curl -X POST \
 
 Easiest way to get block id is copy it from dashboard`s url.
 
-https://dashboard.kodabots.com/bot/e394bb27-5f84-a8b7-659a-8779c7605321/create-bot/**f60ea240-4cda-d1f9-032f-05eba5794059**
+https:// dashboard.kodabots.com/bot/e394bb27-5f84-a8b7-659a-8779c7605321/create-bot/**f60ea240-4cda-d1f9-032f-05eba5794059**
 
 ## Postman Collection
 
 Postman is a popular tool to help test APIs. To make it more convenient for developers who are integrating with our platform, we've developed a Postman collection that contains the full set of APIs.
 
-Download and install Postman. After that click [here](KODA Bots Public Api.postman_collection.json) to download collection.
+Download and install Postman. After that click [here](https://raw.githubusercontent.com/kodabots/Docs/master/KODA%20Bots%20Public%20Api.postman_collection.json) to download collection.
 
 ## Contact
 
