@@ -1,7 +1,7 @@
 
 # Fb Webview Api
 
-<img src="images/webview.png" width="500">
+![alt](images/webview.png)
 
 The Messenger Platform allows you to open a standard webview, where you can load webpages inside Messenger. This lets you offer experiences and features that might be difficult to offer with message bubbles, such as picking products to buy, seats to book, or dates to reserve.
 
