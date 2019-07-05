@@ -587,7 +587,7 @@
           </tbody>
         </table>
 
-## Bot object methods
+# Bot methods
 
 ### open(blockId?) => void
 
