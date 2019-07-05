@@ -5,8 +5,8 @@
 
 ```js
 <script>
-	window.initKBChatbot = function(KBChatbot) {
-		KBChatbot.init({
+	window.initKBChatbot = function(Chatbot) {
+		Chatbot.init({
 			"token": "token-123",
 			"mask": {
 				"show": false
@@ -593,8 +593,8 @@
 
 ```js
 <script>
-	window.initKBChatbot = function(chatbot) {
-		var bot = KBChatbot.init({
+	window.initKBChatbot = function(Chatbot) {
+		var bot = Chatbot.init({
 			"token": "token-123",
 			"mask": {
 				"show": false
