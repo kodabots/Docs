@@ -11,13 +11,13 @@ Broadcasting API allow you to sent messages to chatbot users via an http request
 
 ## [Fb Webview API](docs/fb-webview.md)
 
-Modify user profile and sent next sequence`s element directly from Facebook Webview.
+Modify user profile and sent next sequence\`s element directly from Facebook Webview.
 
 ## Dynamic Gallery API (docs comming soon)
 
 Create custom data source for gallery element e.g calendar, flights schedule or products store filter.
 
-## Web Chatbot Widget SDK (docs comming soon)
+## [Web Chatbot Widget SDK](docs/web-chatbot-widget-sdk.md)
 
 Add to your website web chatbot.
 
