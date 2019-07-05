@@ -4,16 +4,19 @@
 ## Example code
 
 ```js
-<script src="https://web.kodabots.com/widget.js"></script>
 <script>
-    KBChatbot.init({
-        "token": "token-123",
-        "mask": {
-            "show": false
-        }
-     });
+	window.initKBChatbot = function(KBChatbot) {
+		KBChatbot.init({
+			"token": "token-123",
+			"mask": {
+				"show": false
+			}
+		});
+	}
 </script>
+<script async src="https://web.kodabots.com/widget.js"></script>
 ```
+
 
 ## Settings Object
 
@@ -583,6 +586,32 @@
             </tr>
           </tbody>
         </table>
+
+## Bot object methods
+
+### open(blockId?) => void
+
+```js
+<script>
+	window.initKBChatbot = function(chatbot) {
+		var bot = KBChatbot.init({
+			"token": "token-123",
+			"mask": {
+				"show": false
+			}
+		});
+
+		// show chat after 5s with "block-id-123" block 
+		setTimeout(function() {
+			bot.open('block-id-123');
+		}, 5000);
+	}
+
+</script>
+<script async src="https://web.kodabots.com/widget.js"></script>
+```
+
+### close() => void
 
 ## Browser support
 
