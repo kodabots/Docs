@@ -522,6 +522,13 @@
                   <td>0 12px 52px 0 rgba(0, 0, 0, 0.02)</td>
                   <td></td>
                 </tr>
+	        <tr>
+                  <td>auto_open</td>
+                  <td>No</td>
+                  <td>boolean</td>
+                  <td>false</td>
+                  <td></td>
+                </tr>
                 <tr>
                   <td>bot_icon</td>
                   <td>No</td>
@@ -612,6 +619,8 @@
 ```
 
 ### close() => void
+
+### setRef(blockId?) => void
 
 ## Browser support
 
