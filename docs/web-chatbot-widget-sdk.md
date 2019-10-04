@@ -39,7 +39,7 @@
               <td></td>
             </tr>
             <tr>
-              <td>user</td>
+              <td>user_profile</td>
               <td>No</td>
               <td>User Object</td>
               <td>-</td>
@@ -105,6 +105,27 @@
             </tr>
             <tr>
               <td>last_name</td>
+              <td>No</td>
+              <td>string</td>
+              <td></td>
+              <td></td>
+            </tr>
+             <tr>
+              <td>profile_pic</td>
+              <td>No</td>
+              <td>string</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>gender</td>
+              <td>No</td>
+              <td>string - ['male','female']</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>{custom_key}</td>
               <td>No</td>
               <td>string</td>
               <td></td>
